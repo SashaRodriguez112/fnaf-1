@@ -1,18 +1,16 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Five Nights At Freddy</title>
-  <h6>© BenjaminTjoa.com</h6>
-    <h5>klik hier om te pauzeren</h5>
   <link rel="icon" href="images/ico.ico" type="image/ico">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7NML2LF3D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-T7NML2LF3D');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T7NML2LF3D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T7NML2LF3D');
+  </script>
   <style>
     body, html {
       margin: 0;
@@ -25,11 +23,24 @@
       height: 100%;
       border: none;
     }
+    h5, h6 {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <iframe src="https://fnaf-1.github.io/games/FNAF1/index.html"></iframe>
-
-
+  <h6>© BenjaminTjoa.com</h6>
+  <h5>klik hier om te pauzeren</h5>
+  <iframe id="gameIframe" src="https://fnaf-1.github.io/games/FNAF1/index.html"></iframe>
+  <script>
+    // Wait until the iframe is fully loaded
+    document.getElementById('gameIframe').onload = function() {
+      var iframe = document.getElementById('gameIframe').contentWindow;
+      var audios = iframe.document.getElementsByTagName('audio');
+      for (var i = 0; i < audios.length; i++) {
+        audios[i].volume = 1.0;  // Set volume to full
+      }
+    }
+  </script>
 </body>
-</html
+</html>
